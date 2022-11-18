@@ -1,6 +1,8 @@
 const express = require('express');
 express.static.mime.types['wasm'] = 'application/wasm';
 
+const fs = require("fs");
+
 const path = require('path');
 const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
