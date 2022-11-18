@@ -6,11 +6,11 @@ const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const index = require('./routes/index');
+// const index = require('./routes/index');
 const demos = require('./routes/demos');
 const api = require('./routes/api');
 const err = require('./routes/error');
-const upload = require('./routes/upload');
+// const upload = require('./routes/upload');
 
 const app = express();
 const server = require('http').createServer(app);
@@ -35,8 +35,8 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static('public'));
 
-app.use('/demos', demos);
-app.use('/', index);
+app.use('/', demos);
+// app.use('/', index);
 app.use('/api', api);
 app.use('/error', err);
 // app.use('/upload', upload);

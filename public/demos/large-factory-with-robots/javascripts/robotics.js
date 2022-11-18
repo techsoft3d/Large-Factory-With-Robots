@@ -518,7 +518,7 @@ robotViewer.prototype._createViewer = function (viewerMode, reverseProxy, hwp_ve
                     chart.draw(data, options);
                 }
 
-                $.getJSON("jsons/operating_ratio.json", function (ratioData) {
+                $.getJSON("/demos/large-factory-with-robots/jsons/operating_ratio.json", function (ratioData) {
                     if (ratioData) {
                         _this._ratios = [];
                         for (var i = 0; i < _this._robotSystems.length; i++) {
