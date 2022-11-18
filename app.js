@@ -6,14 +6,18 @@ const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-// const index = require('./routes/index');
 const demos = require('./routes/demos');
 const api = require('./routes/api');
 const err = require('./routes/error');
-// const upload = require('./routes/upload');
+
+const options = {
+    key: fs.readFileSync('c:/creds/livecode.key'),
+    cert: fs.readFileSync('c:/creds/livecode.crt')
+  };
+
 
 const app = express();
-const server = require('http').createServer(app);
+const server = require('https').createServer(options, app);
 const io = require('socket.io')(server);
 
 require('./sockets/factory.js')(io);
@@ -57,7 +61,7 @@ app.use(function (err, req, res, next) {
     //winstonLogHandler(err);
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 443;
 server.listen(PORT, () => {
     console.log('\nCommunicator Service Website\nApp is listening on port', server.address().port);
 });
