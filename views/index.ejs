@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/2000/svg">
+
+<head>
+	<%- include('./partials/google_tag_manager') %>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Communicator Demos | Tech Soft 3D</title>
+	<script type="text/javascript" src="/homepage/javascripts/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="/homepage/javascripts/custom.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+	<link rel="stylesheet" href="/homepage/stylesheets/styles.css">
+</head>
+
+<body>
+	<%- include('./partials/google_tag_manager_noscript') %>
+	<section>
+		<div class="band"></div>
+		<div class="structure">
+			<div class="logo">
+				<a href="https://www.techsoft3d.com">
+					<img src="/homepage/images/logo.svg" />
+				</a>
+			</div>
+		</div>
+		<div class="hero">
+			<h1>Communicator Demos</h1>
+		</div>
+		<div class="menu">
+			<ul>
+				<li class="toggle-all">
+					All
+				</li>
+				<li class="toggle-new">
+					New
+				</li>
+				<li class="toggle-basic">
+					Basic Models
+				</li>
+				<li class="toggle-large">
+					Large Models
+				</li>
+				<li class="toggle-bim">
+					BIM / AEC
+				</li>
+				<li class="toggle-plm">
+					PLM / PDM / ERP
+				</li>
+				<li class="toggle-analysis">
+					Analysis
+				</li>
+				<li class="toggle-advanced">
+					Advanced Workflows
+				</li>
+			</ul>
+		</div>
+		<div class="title"><span></span><h2>All Demos</h2><span></span></div>
+		<div class="grid">
+			<div class="card basic">
+				<div class="label">
+					<div>CAD Model Streaming</div>
+				</div>
+				<img src="/homepage/images/thumbnails/cad-model-streaming.png" alt="Cad Model Streaming" />
+				<a href="/demos/basic-models?instance=microengine" target="_blank">
+					<div class="overlay">
+						<p>Various CAD Assemblies & Parts</p>
+					</div>
+				</a>
+			</div>
+			<div class="card large">
+				<div class="label">
+					<div>Boeing 777</div>
+				</div>
+				<img src="/homepage/images/thumbnails/boeing-777.png" alt="Boeing 777" />
+				<a href="/demos/boeing-777" target="_blank">
+					<div class="overlay">
+						<p>30GB Catia Assembly<br>700,000 parts<br>350 million triangles</p>
+					</div>
+				</a>
+			</div>
+			<div class="card large">
+				<div class="label">
+					<div>Four Models</div>
+					<div><a href="https://www.youtube.com/watch?v=uBxPSby6CmA" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+				</div>
+				<img src="/homepage/images/thumbnails/four-models.png" alt="Four models" />
+				<a href="/demos/four-models" target="_blank">
+					<div class="overlay">
+						<p>On demand loading<br>of multiple assemblies</p>
+					</div>
+				</a>
+			</div>
+			<div class="card bim large">
+				<div class="label">
+					<div>Cement Plant</div>
+				</div>
+				<img src="/homepage/images/thumbnails/cement-plant.png" alt="Cement Plant" />
+				<a href="/demos/cement-plant" target="_blank">
+					<div class="overlay">
+						<p>163 Million triangle<br>DWG assembly</p>
+					</div>
+				</a>
+			</div>
+			<div class="card bim">
+				<div class="label">
+					<div>Apartment Building</div>
+				</div>
+				<img src="/homepage/images/thumbnails/arboleda-arch.png" alt="Apartment Building Architecture" />
+				<a href="/demos/apartment-building-architecture" target="_blank">
+					<div class="overlay">
+						<p>Architectural data interogation</p>
+					</div>
+				</a>
+			</div>
+			<div class="card bim">
+				<div class="label">
+					<div>Mobile AEC viewer</div>
+					<div><a href="https://youtu.be/S163AR_rQCc" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+				</div>
+				<img src="/homepage/images/thumbnails/apartment-building-mobile-viewer.png" alt="Apartment Building" />
+				<a href="/demos/apartment-building-mobile-viewer" target="_blank">
+					<div class="overlay">
+						<p>Apartment<br>walk-through</p>
+					</div>
+				</a>
+			</div>
+			<div class="card bim">
+				<div class="label">
+					<div>Full Apartment Building</div>
+				</div>
+				<img src="/homepage/images/thumbnails/apartment-building-all-domains.png" alt="Apartment Building all domains" />
+				<a href="/demos/apartment-building-monolithic" target="_blank">
+					<div class="overlay">
+						<p>Architectural, electrical,<br>mechanical,<br>and plumbing</p>
+					</div>
+				</a>
+			</div>
+			<div class="card bim">
+				<div class="label">
+					<div>2D DWG Drawing Demo</div>
+					<div><a href="https://www.youtube.com/watch?v=XwI9LWLicyw" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+
+				</div>
+				<img src="/homepage/images/thumbnails/2d-hotel-floor-plan.png" alt="Hotel Floor Plans" />
+				<a href="https://techsoft3d.github.io/2D-DWG-Drawing-Viewer/index.html?instance=HotelFloorplan" target="_blank">
+					<div class="overlay">
+						<p>View multiple DWG files with multiple sheets</p>
+					</div>
+				</a>
+			</div>
+			<div class="card bim">
+				<div class="label">
+					<div>Office Point Cloud</div>
+				</div>
+				<img src="/homepage/images/thumbnails/office-with-point-cloud.png" alt="Office Scan with point cloud data" />
+				<a href="/demos/office-with-point-cloud" target="_blank">
+					<div class="overlay">
+						<p>Geometry with<br>color point cloud<br>overlay</p>
+					</div>
+				</a>
+			</div>
+      <!-- AEC Data Navigator -->
+      <div class="card bim">
+				<div class="label">
+					<div>AEC Data Navigator</div>
+					<div><a href="https://www.youtube.com/watch?v=49NBZDKERcU" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+				</div>
+				<img src="/homepage/images/thumbnails/aec-hero.png" alt="AEC demo hero" />
+				<a href="https://demo.techsoft3d.com./aec/" target="_blank">
+					<div class="overlay">
+						<p>2D DWG File<br>with<br>3D Revit File</p>
+					</div>
+				</a>
+			</div>
+      <!-- Inventory Management -->
+			<div class="card plm">
+				<div class="label">
+					<div>Inventory Management</div>
+				</div>
+				<img src="/homepage/images/thumbnails/inventory-management.png" alt="Inventory Management" />
+				<a href="/demos/inventory-management" target="_blank">
+					<div class="overlay">
+						<p>Combine 3D and<br>ERP data</p>
+					</div>
+				</a>
+			</div>
+			<div class="card plm">
+				<div class="label">
+					<div>PLM</div>
+				</div>
+				<img src="/homepage/images/thumbnails/product-lifecycle-management.png" alt="Product Lifecycle Management" />
+				<a href="/demos/product-lifecycle-management" target="_blank">
+					<div class="overlay">
+						<p>Assembly navigation<br>and revision control</p>
+					</div>
+				</a>
+			</div>
+      <!-- Digital Whiteboard -->
+      <div class="card plm">
+				<div class="label">
+					<div>Digital Whiteboard</div>
+					<div><a href="https://www.youtube.com/watch?v=gn3hmigfOSE" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+
+				</div>
+				<img src="/homepage/images/thumbnails/whiteboard-hero.png" alt="Whiteboard demo hero" />
+				<a href="https://techsoft3d.github.io/HC_WhiteboardDemo/" target="_blank">
+					<div class="overlay">
+						<p>Sketch out ideas<br>& Collaborate</p>
+					</div>
+				</a>
+			</div>
+      <!-- FEA Analysis -->
+			<div class="card analysis">
+				<div class="label">
+					<div>FEA Analysis</div>
+				</div>
+				<img src="/homepage/images/thumbnails/steady-state-heat-transfer.png" alt="Steady State Heat Transfer" />
+				<a href="/demos/steady-state-heat-transfer" target="_blank">
+					<div class="overlay">
+						<p>Steady State<br>Heat Transfer</p>
+					</div>
+				</a>
+			</div>
+
+			<div class="card analysis">
+				<div class="label">
+					<div>Engine Scan</div>
+				</div>
+				<img src="/homepage/images/thumbnails/ferrari-v12.png" alt="Engine Scan" />
+				<a href="/demos/engine-scan" target="_blank">
+					<div class="overlay">
+						<p>BREP Model and<br>Point Cloud</p>
+					</div>
+				</a>
+			</div>
+
+			<div class="card analysis">
+				<div class="label">
+					<div>CAE Report</div>
+					<div><a href="https://www.youtube.com/watch?v=wUmQxnLXHA4" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+				</div>
+				<img src="/homepage/images/thumbnails/cae-report.png" alt="CAE Report" />
+				<a href="https://techsoft3d.github.io/hwp-demo-cae-report/" target="_blank">
+					<div class="overlay">
+						<p>CAE Report</p>
+					</div>
+				</a>
+			</div>
+
+
+			<div class="card advanced">
+				<div class="label">
+					<div>Configurator</div>
+				</div>
+				<img src="/homepage/images/thumbnails/configurator.png" alt="Configurator" />
+				<a href="/demos/configurator" target="_blank">
+					<div class="overlay">
+						<p>Dynamically switch<br>subassemblies</p>
+					</div>
+				</a>
+			</div>
+			<div class="card advanced">
+				<div class="label">
+					<div>Work Procedure</div>
+					<div><a href="https://www.youtube.com/watch?v=pLyDNLDJDtM" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+				</div>
+				<img src="/homepage/images/thumbnails/work-procedure.png" alt="Car Door" />
+				<a href="/demos/work-procedure" target="_blank">
+					<div class="overlay">
+						<p>Automobile maintenance<br>and ordering site</p>
+					</div>
+				</a>
+			</div>
+			<div class="card advanced">
+				<div class="label">
+					<div>Factory Status</div>
+				</div>
+				<img src="/homepage/images/thumbnails/factory-status.png" alt="Robot arms in factory" />
+				<a href="/demos/factory-status" target="_blank">
+					<div class="overlay">
+						<p>Factory animation and status monitoring</p>
+					</div>
+				</a>
+			</div>
+			<div class="card advanced">
+				<div class="label">
+					<div>Delayed Load / Configurator</div>
+				</div>
+				<img src="/homepage/images/thumbnails/delayed-load-configurator.png" alt="Configurator" />
+				<a href="/demos/delayed-load-configurator" target="_blank">
+					<div class="overlay">
+						<p>Load and swap data<br>upon request</p>
+					</div>
+				</a>
+			</div>
+			<div class="card advanced">
+				<div class="label">
+					<div>Collaborator</div>
+					<div><a href="https://www.youtube.com/watch?v=X-48jAOQ7PA" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+				</div>
+				<img src="/homepage/images/thumbnails/collaborator.png" alt="Motorcycle engine" />
+				<a href="/demos/collaborator" target="_blank">
+					<div class="overlay">
+						<p>Mirror multiple<br>viewers</p>
+					</div>
+				</a>
+			</div>
+			<div class="card advanced">
+				<div class="label">
+					<div>3D Printing</div>
+				</div>
+				<img src="/homepage/images/thumbnails/3d-printing.png" alt="3D Printing part" />
+				<a href="/demos/3d-printing" target="_blank">
+					<div class="overlay">
+						<p>Upload and heal parts<br>with Polygonica</p>
+					</div>
+				</a>
+			</div>
+			<div class="card advanced">
+				<div class="label">
+					<div>Mobile Plant Viewer</div>
+				</div>
+				<img src="/homepage/images/thumbnails/cement-plant-viewer.png" alt="Cement Plant" />
+				<a href="/demos/cement-plant-viewer" target="_blank">
+					<div class="overlay">
+						<p>Use mobile device to navigate and annotate</p>
+					</div>
+				</a>
+			</div>
+			<div class="card advanced">
+				<div class="label">
+					<div>Animation Creator</div>
+					<div><a href="https://www.youtube.com/watch?v=D19tZJvZBlQ" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+
+				</div>
+				<img src="/homepage/images/thumbnails/animation-creator.png" alt="Animation Creator" />
+				<a href="https://techsoft3d.github.io/animation-creator/animation_creator.html?viewer=SCS&instance=microengine" target="_blank">
+					<div class="overlay">
+						<p>Design and export animations of models</p>
+					</div>
+				</a>
+			</div>
+
+			<div class="card advanced new">
+				<div class="label">
+					<div>IoT Demo</div>
+					<div><a href="https://youtu.be/ye_UvWhcf7I" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+				</div>
+				<img src="/homepage/images/thumbnails/iot-demo.png" alt="IoT Demo"/>
+				<a href="https://cloud-iot.techsoft3d.com" target="_blank">
+					  <div class="overlay">
+							<p>Real-time Environmental<br>Data in 3D</p>
+					  </div>
+				</a>
+			</div>
+
+			<div class="card advanced new">
+				<div class="label">
+					<div>3D Cloud Modeler</div>
+					<div><a href="https://youtu.be/kyMrt0Pz_00" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+				</div>
+				<img src="/homepage/images/thumbnails/cloud-modeler.png" alt="Cloud Modeler"/>
+				<a href="/demos/cloud-modeler" target="_blank">
+					  <div class="overlay">
+							<p>Interactive 3D Modeling</p>
+					  </div>
+				</a>
+			</div>
+
+			<div class="card large new">
+				<div class="label">
+					<div>Large Factory with Robots</div>
+				</div>
+				<img src="/homepage/images/thumbnails/large-factory-with-robots.png" alt="Large Factory with Robots" />
+				<a href="/demos/large-factory-with-robots" target="_blank">
+					<div class="overlay">
+						<p>Collaborative viewing <br>of factory floor plan</p>
+					</div>
+				</a>
+			</div>
+
+			<div class="card advanced new">
+				<div class="label">
+					<div>Additive Manufacturing</div>
+					<div><a href="https://www.youtube.com/watch?v=Qo4PQQMY8UQ" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+				</div>
+				<img src="/homepage/images/thumbnails/additive-manufacturing.png" alt="3D Model" />
+				<a href="https://techsoft3d.github.io/additive-manufacturing/" target="_blank">
+					<div class="overlay">
+						<p>Additive Manufacturing</p>
+					</div>
+				</a>
+			</div>
+	
+			<div class="card plm new">
+				<div class="label">
+					<div>Inventory Management</div>
+					<div><a href="https://www.youtube.com/watch?v=DyXOj6rZv-s" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+				</div>
+				<img src="/homepage/images/thumbnails/inventory-management-tutorial.png" alt="3D Model" />
+				<a href="https://techsoft3d.github.io/inventory-management/" target="_blank">
+					<div class="overlay">
+						<p>Inventory Management</p>
+					</div>
+				</a>
+			</div>
+			<div class="card plm new">
+				<div class="label">
+					<div>Product Configurator</div>
+					<div><a href="https://www.youtube.com/watch?v=7ELTBR7pG1U" target="_blank"><img src="/homepage/images/video.svg"/></a></div>
+				</div>
+				<img src="/homepage/images/thumbnails/product-configurator.png" alt="3D Model" />
+				<a href="https://techsoft3d.github.io/product-configurator/" target="_blank">
+					<div class="overlay">
+						<p>Product Configurator</p>
+					</div>
+				</a>
+			</div>
+			
+		</div>
+		<div class="base-shade"></div>
+	</section>
+</body>
+
+</html>

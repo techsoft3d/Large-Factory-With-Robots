@@ -1,0 +1,70 @@
+{
+    "#1-1 Arc Welding":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "11", "running": "2", "stopping": "2", "alarm": "2", "shutdown": "7"}}
+    ],
+    "#1-2 Arc Welding":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "9", "running": "3", "stopping": "2", "alarm": "2", "shutdown": "8"}}
+    ],
+    "#1-3 Arc Welding":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "15", "running": "4", "stopping": "4", "alarm": "1", "shutdown": "0"}}
+    ],
+    "#1-4 Pick&Place":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "2", "running": "6", "stopping": "2", "alarm": "2", "shutdown": "12"}}
+    ],
+    "#1-5 CMM":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "5", "running": "10", "stopping": "0", "alarm": "0", "shutdown": "9"}}
+    ],
+    "#1-6 Pick&Place":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "1", "running": "0", "stopping": "0", "alarm": "0", "shutdown": "23"}}
+    ],
+    "#1-7 Pick&Place":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "6", "running": "2", "stopping": "2", "alarm": "4", "shutdown": "10"}}
+    ],
+    "#1-8 Pick&Place":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "10", "running": "10", "stopping": "2", "alarm": "0", "shutdown": "2"}}
+    ],
+    "#2-1 CMM":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "8", "running": "6", "stopping": "4", "alarm": "2", "shutdown": "4"}}
+    ],
+    "#2-2 Spot Welding":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "6", "running": "6", "stopping": "2", "alarm": "0", "shutdown": "10"}}
+    ],
+    "#2-3 Pick&Place":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "11", "running": "2", "stopping": "2", "alarm": "2", "shutdown": "7"}}
+    ],
+    "#2-4 Spot Welding":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "9", "running": "3", "stopping": "2", "alarm": "2", "shutdown": "8"}}
+    ],
+    "#2-5 Arc Welding":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "15", "running": "4", "stopping": "4", "alarm": "1", "shutdown": "0"}}
+    ],
+    "#2-6 Spot Welding":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "2", "running": "6", "stopping": "2", "alarm": "2", "shutdown": "12"}}
+    ],
+    "#2-7 CMM":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "5", "running": "10", "stopping": "0", "alarm": "0", "shutdown": "9"}}
+    ],
+    "#2-8 Arc Welding":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "1", "running": "0", "stopping": "0", "alarm": "0", "shutdown": "23"}}
+    ],
+    "#3-1 Arc Welding":
+    [
+        {"date": "2017/3/16", "operating_ratio": {"idling": "6", "running": "2", "stopping": "2", "alarm": "4", "shutdown": "10"}}
+    ]
+}

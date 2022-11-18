@@ -1,0 +1,85 @@
+#header {
+    margin-right: 10px;
+    text-align: right;
+}
+#title {
+    height: 32px;
+    background-image: url(images/title_bar.png);
+    font-size: 24px;
+    color: #ffffff;
+}
+#footer {
+    height: 20px;
+    background-color: #6d7172;
+    color: #ffffff;
+    text-align: center;
+}
+#userCount {
+    position: absolute;
+    color: #ffffff;
+    top: 50px;
+    right: 10px
+}
+#userControl {
+    position: absolute;
+    color: #ffffff;
+    top: 62px;
+    right: 10px
+}
+#triangleCount {
+    position: absolute;
+    color: #ffffff;
+    bottom: 1px;
+    left: 10px
+}
+#viewerVersion {
+    position: absolute;
+    color: #ffffff;
+    bottom: 1px;
+    right: 10px
+}
+#demoInfo {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+.piechart {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+}
+#container2D {
+    position: fixed;
+    bottom: 20px;
+    left: 0px;
+    width: 400px;
+    height: 300px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: thin;
+}
+.toolbarBtn {
+    border: solid 1px #000000;
+    background-color: white;
+    width: 32px;
+    height: 32px;
+}
+.bottomCenter {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    width: 100%;
+    text-align:center;
+    z-index: 0;
+}
+.panel {
+    position: absolute;
+    overflow-y:auto;
+    bottom: 37px;
+    background-color: rgba(198,199,200,0.8);
+    width: 370px;
+    z-index: 1;
+}
+#toolbar {
+    position: absolute;
+}
