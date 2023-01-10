@@ -61,6 +61,6 @@ export const getContainerEndpoint = (args) => {
   });
 };
 
-export const HWP_VERSION = "2022.2.0";
+export const HWP_VERSION = "latest";
 export const HWP_VIEWER_PATH = `https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer@${HWP_VERSION}/hoops_web_viewer.js`;
 export const HWP_ENGINE_PATH = `https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer@${HWP_VERSION}`;

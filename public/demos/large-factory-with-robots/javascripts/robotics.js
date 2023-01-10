@@ -66,7 +66,7 @@ robotViewer.prototype.start = function (viewerMode, reverseProxy) {
     var _this = this;
     _this._initResources();
     _this._initDialog();
-    _this._createViewer(viewerMode, reverseProxy, "2022.2.0");
+    _this._createViewer(viewerMode, reverseProxy, "latest");
     _this._initEvent();
 }
 
