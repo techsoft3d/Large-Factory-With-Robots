@@ -16,6 +16,11 @@ export async function startViewer(model, container) {
 
         let res = await fetch(conversionServiceURI + '/api/streamingSession');
         var data = await res.json();
+        var endpointUriBeginning = 'ws://';
+
+        if(conversionServiceURI.substring(0, 5).includes("https")){
+                endpointUriBeginning = 'wss://'
+        }
 
         if(model == "factory_floor"){
                 await fetch(conversionServiceURI + '/api/enableStreamAccess/' + data.sessionid, { method: 'put', headers: { 'items': JSON.stringify(factory_floor_uids) } });
@@ -26,7 +31,7 @@ export async function startViewer(model, container) {
 
         viewer = new Communicator.WebViewer({
                 containerId: container,
-                endpointUri: 'wss://' + data.serverurl + ":" + data.port + '?token=' + data.sessionid,
+                endpointUri: endpointUriBeginning + data.serverurl + ":" + data.port + '?token=' + data.sessionid,
                 model: model,
                 boundingPreviewMode: "none",
                 enginePath: "https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer@latest",
