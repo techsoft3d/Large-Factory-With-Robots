@@ -29,12 +29,14 @@ export async function startViewer(model, container) {
                 await fetch(conversionServiceURI + '/api/enableStreamAccess/' + data.sessionid, { method: 'put', headers: { 'items': JSON.stringify(floor_map_uid) } });
         }
 
+        var result = await fetchVersionNumber();
+  
         viewer = new Communicator.WebViewer({
                 containerId: container,
                 endpointUri: endpointUriBeginning + data.serverurl + ":" + data.port + '?token=' + data.sessionid,
                 model: model,
                 boundingPreviewMode: "none",
-                enginePath: "https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer@latest",
+                enginePath: `https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer@20${result['hcVersion']}`,
                 rendererType: 0
         });
 
@@ -44,3 +46,7 @@ export async function startViewer(model, container) {
 
 }
 
+async function fetchVersionNumber() {
+        let data = await caasClient.getHCVersion();
+        return data
+      }
