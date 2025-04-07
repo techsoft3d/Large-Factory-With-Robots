@@ -7,20 +7,19 @@ const path = require('path');
 const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const demos = require('./routes/demos');
 const api = require('./routes/api');
 const err = require('./routes/error');
 
 const options = {
-    key: fs.readFileSync("./certs/server.key"),
-    cert: fs.readFileSync("./certs/server.crt"),
+  key: fs.readFileSync("./certs/server.key"),
+  cert: fs.readFileSync("./certs/server.crt"),
   };
 
 
 const app = express();
-const server = require('https').createServer(options, app);
+const server = require('http').createServer(options, app);
 const io = require('socket.io')(server);
 
 require('./sockets/factory.js')(io);
@@ -41,28 +40,6 @@ app.use(favicon(path.join(__dirname, 'public', 'images/favicon.ico')));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static('public'));
-
-
-// Middleware to dynamically proxy /api/spawn based on "staging" in the URL
-app.use("/api/spawn", (req, res, next) => {
-    const host = req.hostname || req.headers.host; // Get the request's hostname
-    const isStaging = host.includes("staging");
-  
-    console.log(`Incoming URL ${host} is staging is ${isStaging}`);
-  
-    const target = isStaging 
-      ? "https://hoops-staging:11183"
-      : "https://hoops:11182";
-  
-    console.log(`Routing /api/spawn request to: ${target}`);
-  
-    return createProxyMiddleware({
-      target,
-      changeOrigin: true,
-      secure: false, // Allow self-signed certificates
-      logLevel: "debug",
-    })(req, res, next);
-  });
 
 app.use('/', demos);
 // app.use('/', index);
@@ -86,9 +63,7 @@ app.use(function (err, req, res, next) {
     //winstonLogHandler(err);
 });
 
-
-  
-const PORT = process.env.PORT || 443;
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log('\nCommunicator Service Website\nApp is listening on port', server.address().port);
 });

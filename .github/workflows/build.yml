@@ -132,6 +132,7 @@ jobs:
       - name: Pull Latest Docker Images
         run: |
           docker pull ghcr.io/techsoft3d/streaming-server:latest
+          docker pull ghcr.io/techsoft3d/proxy-server:latest
 
       - name: Clean shared volumes
         run: |

@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # # Expose the port your app runs on
-EXPOSE 443
+EXPOSE 3000
 
 # Start the Node.js server and allow dynamic PORT setting
 CMD ["sh", "-c", "node app.js"]

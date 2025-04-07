@@ -35,17 +35,28 @@ services:
     container_name: file-server
     restart: unless-stopped
     ports:
-      - "443:443"  #change to whatever port you want files to be served from, but default is 3000
+      - "3000:3000"  #change to whatever port you want files to be served from, but default is 3000
     environment:
-      - PORT=443  # This sets the PORT dynamically
+      - PORT=3000  # This sets the PORT dynamically
     volumes: 
       - public:/app/public  # Mounts local "public" folder into the container
-      - ./certs:/app/certs 
     depends_on:
       - hoops
     networks:
       - shared-network 
-      
+
+  proxy-server:
+    image: ghcr.io/techsoft3d/proxy-server:latest  
+    container_name: proxy-server
+    restart: unless-stopped
+    ports:
+      - "443:443"
+    depends_on:
+      - hoops
+    networks:
+      - shared-network 
+    volumes:
+      - ./certs:/app/certs 
 networks:
   shared-network:
     external: true
