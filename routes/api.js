@@ -6,27 +6,6 @@ const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
 const { exec, spawn } = require('child_process');
-const { createProxyMiddleware } = require('http-proxy-middleware');
-
-router.use("/spawn", (req, res, next) => {
-    const host = req.hostname || req.headers.host;
-    const isStaging = host.includes("staging");
-
-    console.log(`Incoming URL ${host} is staging: ${isStaging}`);
-
-    const target = isStaging 
-        ? "https://hoops-staging:11183"
-        : "https://hoops:11182";
-
-    console.log(`Routing /api/spawn request to: ${target}`);
-
-    return createProxyMiddleware({
-        target,
-        changeOrigin: true,
-        secure: false,
-        logLevel: "debug",
-    })(req, res, next);
-});
 
 const throttle_options = {
     'rate': '5/s',
@@ -34,7 +13,6 @@ const throttle_options = {
         res.send('error: 429 - Too many requests');
     }
 };
-
 
 router.use((req, res, next) => {
     if (req.body.cognito_auth_token) {
