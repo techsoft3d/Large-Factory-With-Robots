@@ -8,114 +8,108 @@
 
     <title>Large Factory with Robots | HOOPS Web Viewer</title>
 
-    <%- include('../partials/google_tag_manager') %>
-        <script type="text/javascript" src="/javascripts/communicator_scripts/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascripts/communicator_scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="/hoops/hoops_web_viewer.js"></script>
 
 
+    <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/general_func.js"></script>
+    <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/HC_common.js"></script>
+    <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/toolTip.js"></script>
+    <script type="module" src="/demos/large-factory-with-robots/javascripts/robotics.js"></script>
+    <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/robotInstance.js"></script>
+    <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/drawingOperator.js"></script>
+    <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/math_utils.js"></script>
+    <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/statusMarkup.js"></script>
+    <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/customWalkOperator.js"></script>
 
-        <script type="text/javascript"
-            src="https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer@latest/hoops_web_viewer.js?v=latest"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-        <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/general_func.js"></script>
-        <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/HC_common.js"></script>
-        <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/toolTip.js"></script>
-        <script type="module" src="/demos/large-factory-with-robots/javascripts/robotics.js"></script>
-        <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/robotInstance.js"></script>
-        <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/drawingOperator.js"></script>
-        <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/math_utils.js"></script>
-        <script type="text/javascript" src="/demos/large-factory-with-robots/javascripts/statusMarkup.js"></script>
-        <script type="text/javascript"
-            src="/demos/large-factory-with-robots/javascripts/customWalkOperator.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/demos/large-factory-with-robots/css/robotics.css" type="text/css">
 
-        <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
-        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" type="text/css">
-        <link rel="stylesheet" href="/demos/large-factory-with-robots/css/robotics.css" type="text/css">
+    <script type="module">
+        import robotViewer from '/demos/large-factory-with-robots/javascripts/robotics.js';
 
-        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-        <link rel="stylesheet"
-            href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        var language = browserLanguage();
+        var lang = getURLArgument("lang");
+        if (lang != undefined)
+            language = lang;
 
-        <script type="module">
-            import robotViewer from '/demos/large-factory-with-robots/javascripts/robotics.js';
+        const viewer = new robotViewer(language);
+        var viewerMode = getURLArgument("viewer");
+        var reverseProxy = getURLArgument("proxy");
+        viewer.start();
 
-            var language = browserLanguage();
-            var lang = getURLArgument("lang");
-            if (lang != undefined)
-                language = lang;
-
-            const viewer = new robotViewer(language);
-            var viewerMode = getURLArgument("viewer");
-            var reverseProxy = getURLArgument("proxy");
-            viewer.start();
-
-            google.charts.load('current', { 'packages': ['corechart', 'bar'] });
-        </script>
+        google.charts.load('current', { 'packages': ['corechart', 'bar'] });
+    </script>
 </head>
 
 <body>
-    <%- include('../partials/google_tag_manager_noscript') %>
-        <div id="header"><img src="/demos/large-factory-with-robots/css/images/HC_logo.png" style="height: 50px"></div>
-        <div id="title">&nbsp;Factory Collaboration Monitor</div>
-        <div id="content">
-            <div id="container"></div>
-            <div id="footer">© Tech Soft 3D All Rights Reserved</div>
-        </div>
+    <div id="header"><img src="/demos/large-factory-with-robots/css/images/HC_logo.png" style="height: 50px"></div>
+    <div id="title">&nbsp;Factory Collaboration Monitor</div>
+    <div id="content">
+        <div id="container"></div>
+        <div id="footer">© Tech Soft 3D All Rights Reserved</div>
+    </div>
 
-        <div id="demoInfo">
-            This demonstration is monitoring operating status uploaded from a distant factory. <br>
+    <div id="demoInfo">
+        This demonstration is monitoring operating status uploaded from a distant factory. <br>
+    </div>
+    <div id="userCount"></div>
+    <div id="userControl"></div>
+    <div id="viewerVersion"></div>
+    <div id="triangleCount"></div>
+    <div id="stage"></div>
+    <div id="piechart0" class="piechart"></div>
+    <div id="piechart1" class="piechart"></div>
+    <div id="piechart2" class="piechart"></div>
+    <div id="piechart3" class="piechart"></div>
+    <div id="piechart4" class="piechart"></div>
+    <div id="piechart5" class="piechart"></div>
+    <div id="piechart6" class="piechart"></div>
+    <div id="piechart7" class="piechart"></div>
+    <div id="piechart8" class="piechart"></div>
+    <div id="piechart9" class="piechart"></div>
+    <div id="piechart10" class="piechart"></div>
+    <div id="piechart11" class="piechart"></div>
+    <div id="piechart12" class="piechart"></div>
+    <div id="piechart13" class="piechart"></div>
+    <div id="piechart14" class="piechart"></div>
+    <div id="piechart15" class="piechart"></div>
+    <div id="piechart16" class="piechart"></div>
+    <div id="piechart17" class="piechart"></div>
+    <div id="sample-dialog">
+        <div id="columnChart"></div>
+    </div>
+    <div id="container2D"></div>
+    <div id="toolbar" class="bottomCenter">
+        <input class="toolbarBtn" data-command="home" type="image"
+            src="/demos/large-factory-with-robots/css/images/home.png" title="Home" />
+        <input class="toolbarBtn" data-command="collabo" type="image"
+            src="/demos/large-factory-with-robots/css/images/collabo.png" title="Camera　Collaboration" data-on="true"
+            style="background-color:tomato" />
+        <input class="toolbarBtn" data-command="redline" type="image"
+            src="/demos/large-factory-with-robots/css/images/redline.png" title="Redline" />
+        <input class="toolbarBtn" data-command="ratio" type="image"
+            src="/demos/large-factory-with-robots/css/images/ratio.png" title="Factory Operating Ratio" />
+        <input class="toolbarBtn" data-command="settings" type="image"
+            src="/demos/large-factory-with-robots/css/images/settings.png" title="Settings" />
+    </div>
+    <div class="panel" id="settingsPanel" style="display:none;padding:10px">
+        <div class="checkbox">
+            <label>
+                <input class="settingChk" data-command="ambientOcclusion" type="checkbox" checked="checked"><span
+                    id="ambientOcclusionLabel">Ambient Occlusion</span><br />
+            </label>
         </div>
-        <div id="userCount"></div>
-        <div id="userControl"></div>
-        <div id="viewerVersion"></div>
-        <div id="triangleCount"></div>
-        <div id="stage"></div>
-        <div id="piechart0" class="piechart"></div>
-        <div id="piechart1" class="piechart"></div>
-        <div id="piechart2" class="piechart"></div>
-        <div id="piechart3" class="piechart"></div>
-        <div id="piechart4" class="piechart"></div>
-        <div id="piechart5" class="piechart"></div>
-        <div id="piechart6" class="piechart"></div>
-        <div id="piechart7" class="piechart"></div>
-        <div id="piechart8" class="piechart"></div>
-        <div id="piechart9" class="piechart"></div>
-        <div id="piechart10" class="piechart"></div>
-        <div id="piechart11" class="piechart"></div>
-        <div id="piechart12" class="piechart"></div>
-        <div id="piechart13" class="piechart"></div>
-        <div id="piechart14" class="piechart"></div>
-        <div id="piechart15" class="piechart"></div>
-        <div id="piechart16" class="piechart"></div>
-        <div id="piechart17" class="piechart"></div>
-        <div id="sample-dialog">
-            <div id="columnChart"></div>
-        </div>
-        <div id="container2D"></div>
-        <div id="toolbar" class="bottomCenter">
-            <input class="toolbarBtn" data-command="home" type="image"
-                src="/demos/large-factory-with-robots/css/images/home.png" title="Home" />
-            <input class="toolbarBtn" data-command="collabo" type="image"
-                src="/demos/large-factory-with-robots/css/images/collabo.png" title="Camera　Collaboration"
-                data-on="true" style="background-color:tomato" />
-            <input class="toolbarBtn" data-command="redline" type="image"
-                src="/demos/large-factory-with-robots/css/images/redline.png" title="Redline" />
-            <input class="toolbarBtn" data-command="ratio" type="image"
-                src="/demos/large-factory-with-robots/css/images/ratio.png" title="Factory Operating Ratio" />
-            <input class="toolbarBtn" data-command="settings" type="image"
-                src="/demos/large-factory-with-robots/css/images/settings.png" title="Settings" />
-        </div>
-        <div class="panel" id="settingsPanel" style="display:none;padding:10px">
-            <div class="checkbox">
-                <label>
-                    <input class="settingChk" data-command="ambientOcclusion" type="checkbox" checked="checked"><span
-                        id="ambientOcclusionLabel">Ambient Occlusion</span><br />
-                </label>
-            </div>
-        </div>
+    </div>
 </body>
 
 </html>

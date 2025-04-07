@@ -13,8 +13,8 @@ const api = require('./routes/api');
 const err = require('./routes/error');
 
 const options = {
-    key: fs.readFileSync('c:/creds/livecode.key'),
-    cert: fs.readFileSync('c:/creds/livecode.crt')
+    key: fs.readFileSync('c:/creds/server.key'),
+    cert: fs.readFileSync('c:/creds/server.crt')
   };
 
 
