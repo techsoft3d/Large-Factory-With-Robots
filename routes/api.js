@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const { exec, spawn } = require('child_process');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-router.use("/spawn", (req, res, next) => {
+router.use("/api/spawn", (req, res, next) => {
     const host = req.hostname || req.headers.host;
     const isStaging = host.includes("staging");
 
