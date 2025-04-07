@@ -63,6 +63,27 @@ app.use(function (err, req, res, next) {
     //winstonLogHandler(err);
 });
 
+// Middleware to dynamically proxy /api/spawn based on "staging" in the URL
+app.use("/api/spawn", (req, res, next) => {
+    const host = req.hostname || req.headers.host; // Get the request's hostname
+    const isStaging = host.includes("staging");
+  
+    console.log(`Incoming URL ${host} is staging is ${isStaging}`);
+  
+    const target = isStaging 
+      ? "https://hoops-staging:11183"
+      : "https://hoops:11182";
+  
+    console.log(`Routing /api/spawn request to: ${target}`);
+  
+    return createProxyMiddleware({
+      target,
+      changeOrigin: true,
+      secure: false, // Allow self-signed certificates
+      logLevel: "debug",
+    })(req, res, next);
+  });
+  
 const PORT = process.env.PORT || 443;
 server.listen(PORT, () => {
     console.log('\nCommunicator Service Website\nApp is listening on port', server.address().port);
