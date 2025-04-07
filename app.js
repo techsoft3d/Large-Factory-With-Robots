@@ -13,8 +13,8 @@ const api = require('./routes/api');
 const err = require('./routes/error');
 
 const options = {
-    key: fs.readFileSync('c:/creds/server.key'),
-    cert: fs.readFileSync('c:/creds/server.crt')
+    key: fs.readFileSync("./certs/server.key"),
+    cert: fs.readFileSync("./certs/server.crt"),
   };
 
 
