@@ -33,9 +33,7 @@ services:
         exec ../../3rd_party/node/bin/node --expose-gc ./lib/Startup.js --config-file ../../quick_start/server_config.js",
       ]
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/techsoft3d/node-server:latest
     container_name: file-server
     restart: unless-stopped
     ports:
