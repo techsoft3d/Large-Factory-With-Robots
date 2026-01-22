@@ -19,9 +19,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          ref: main 
+          ref: main
           clean: true
-        
+
+      - name: Stop & remove all Docker containers (cleanup)
+        shell: bash
+        run: |
+          docker-compose down --remove-orphans || true
+          docker ps -q | xargs -r docker stop
+          docker ps -aq | xargs -r docker rm -f
       - name: Create hoops_license.txt
         run: |
           echo "${{ secrets.HOOPS_LICENSE }}" | base64 --decode > hoops_license.txt
@@ -50,8 +56,8 @@ jobs:
         run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Remove unused Docker images
-        run: docker image prune -af  
-        
+        run: docker image prune -af
+
       - name: Pull Latest Docker Images
         run: |
           docker pull ghcr.io/techsoft3d/streaming-server:latest
@@ -68,7 +74,7 @@ jobs:
             -v public:/volume \
             -v $(pwd)/public:/backup \
             alpine sh -c "cp -r /backup/* /volume/ && ls -la /volume/"
-  
+
           docker run --rm \
             -v patches:/volume \
             -v $(pwd)/patches:/backup \
@@ -80,15 +86,18 @@ jobs:
 
       - name: Build and Run Docker Containers
         run: |
-          docker-compose -p main_project up -d --force-recreate --build
-
-
-
+          docker-compose up -d --force-recreate
 
   run-in-oregon:
     name: Run on Oregon Runner
     runs-on: [self-hosted, oregon]
     steps:
+      - name: Stop & remove all Docker containers (cleanup)
+        shell: bash
+        run: |
+          docker-compose down --remove-orphans || true
+          docker ps -q | xargs -r docker stop
+          docker ps -aq | xargs -r docker rm -f
       - name: Fix permissions before checkout
         run: sudo chown -R $USER:$USER $GITHUB_WORKSPACE
 
@@ -98,9 +107,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          ref: main 
+          ref: main
           clean: true
-        
+
       - name: Create hoops_license.txt
         run: |
           echo "${{ secrets.HOOPS_LICENSE }}" | base64 --decode > hoops_license.txt
@@ -129,8 +138,8 @@ jobs:
         run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Remove unused Docker images
-        run: docker image prune -af  
-        
+        run: docker image prune -af
+
       - name: Pull Latest Docker Images
         run: |
           docker pull ghcr.io/techsoft3d/streaming-server:latest
@@ -147,7 +156,7 @@ jobs:
             -v public:/volume \
             -v $(pwd)/public:/backup \
             alpine sh -c "cp -r /backup/* /volume/ && ls -la /volume/"
-  
+
           docker run --rm \
             -v patches:/volume \
             -v $(pwd)/patches:/backup \
@@ -159,4 +168,4 @@ jobs:
 
       - name: Build and Run Docker Containers
         run: |
-          docker-compose -p main_project up -d --force-recreate --build
+          docker-compose up -d --force-recreate
