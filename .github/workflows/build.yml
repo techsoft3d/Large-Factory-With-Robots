@@ -83,6 +83,9 @@ jobs:
             alpine sh -c "cp -r /backup/* /volume/ && ls -la /volume/"
 
       - name: Build Docker Images
+        env:
+          DOCKER_BUILDKIT: 1
+          BUILDX_NO_DEFAULT_ATTESTATIONS: 1
         run: |
           docker-compose build --no-cache
 
@@ -167,6 +170,9 @@ jobs:
             alpine sh -c "cp -r /backup/* /volume/ && ls -la /volume/"
 
       - name: Build Docker Images
+        env:
+          DOCKER_BUILDKIT: 1
+          BUILDX_NO_DEFAULT_ATTESTATIONS: 1
         run: |
           docker-compose build --no-cache
 
