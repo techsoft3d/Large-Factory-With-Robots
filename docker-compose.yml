@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   hoops:
     image: ghcr.io/techsoft3d/streaming-server:latest

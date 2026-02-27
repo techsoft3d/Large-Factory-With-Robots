@@ -82,9 +82,13 @@ jobs:
             -v $(pwd)/models:/backup \
             alpine sh -c "cp -r /backup/* /volume/ && ls -la /volume/"
 
-      - name: Build and Run Docker Containers
+      - name: Build Docker Images
         run: |
-          docker-compose up -d --build --force-recreate
+          docker-compose build --no-cache
+
+      - name: Start Docker Containers
+        run: |
+          docker-compose up -d --force-recreate
 
   run-in-oregon:
     name: Run on Oregon Runner
@@ -162,6 +166,10 @@ jobs:
             -v $(pwd)/models:/backup \
             alpine sh -c "cp -r /backup/* /volume/ && ls -la /volume/"
 
-      - name: Build and Run Docker Containers
+      - name: Build Docker Images
         run: |
-          docker-compose up -d --build --force-recreate
+          docker-compose build --no-cache
+
+      - name: Start Docker Containers
+        run: |
+          docker-compose up -d --force-recreate
