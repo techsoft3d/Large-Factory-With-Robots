@@ -84,8 +84,7 @@ jobs:
 
       - name: Build Docker Images
         env:
-          DOCKER_BUILDKIT: 1
-          BUILDX_NO_DEFAULT_ATTESTATIONS: 1
+          DOCKER_BUILDKIT: 0
         run: |
           docker-compose build --no-cache
 
@@ -171,8 +170,7 @@ jobs:
 
       - name: Build Docker Images
         env:
-          DOCKER_BUILDKIT: 1
-          BUILDX_NO_DEFAULT_ATTESTATIONS: 1
+          DOCKER_BUILDKIT: 0
         run: |
           docker-compose build --no-cache
 
