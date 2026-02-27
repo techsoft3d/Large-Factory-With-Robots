@@ -33,7 +33,9 @@ services:
         exec ../../3rd_party/node/bin/node --expose-gc ./lib/Startup.js --config-file ../../quick_start/server_config.js",
       ]
   app:
-    image: ghcr.io/techsoft3d/node-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: file-server
     restart: unless-stopped
     ports:
@@ -41,7 +43,8 @@ services:
     environment:
       - PORT=3000 # This sets the PORT dynamically
     volumes:
-      - public:/app/public # Mounts local "public" folder into the container
+      - public:/app/public # Mounts shared public volume for HOOPS files
+      - ./certs:/app/certs # Mount SSL certificates
     depends_on:
       - hoops
     networks:
